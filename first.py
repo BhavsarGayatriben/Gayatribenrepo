@@ -1,7 +1,5 @@
-name = "Gayatriben Bhavsar"
-print(f"Hello, {name}!")
-print(f"Hello, {name}!")
-print(f"Hello, {name}!")
-print(f"Hello, vivek")
-print(f"Hello, Kirpal Singh")
-print(f"good morning,{name}")
+import math
+
+radius = float(input("Enter the radius of the circle: "))
+area = math.pi * radius ** 2
+print(f"The area of the circle is {area:.2f}")

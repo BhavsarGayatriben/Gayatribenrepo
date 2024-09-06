@@ -52,3 +52,57 @@ code_3_digits = [random.randint(0, 9) for _ in range(3)]
 code_4_digits = [random.randint(1, 6) for _ in range(4)]
 code_3_digits_str = ''.join(map(str, code_3_digits))
 code_4_digits_str = ''.join(map(str, code_4_digits))
+
+size_limit = 42
+
+
+zander_length = float(input("Enter the length of the zander in cm: "))
+if zander_length >= size_limit:
+    print("The zander meets the size limit. You can keep it.")
+else:
+    difference = size_limit - zander_length
+    print(f"Release the fish back into the lake. It is {difference:.2f} cm below the size limit.")
+
+    cabin_class = input("Enter the cabin class (LUX, A, B, C): ").upper()
+
+
+    if cabin_class == "LUX":
+        print("LUX: upper-deck cabin with a balcony.")
+    elif cabin_class == "A":
+        print("A: above the car deck, equipped with a window.")
+
+    elif cabin_class == "B":
+        print("B: windowless cabin above the car deck.")
+    elif cabin_class == "C":
+        print("C: windowless cabin below the car deck.")
+    else:
+        print("Invalid cabin class.")
+
+        gender = input("Enter biological gender (male/female): ").strip().lower()
+        hemoglobin = float(input("Enter hemoglobin value (g/l): "))
+
+
+        if gender == "female":
+            if hemoglobin < 117:
+                print("Hemoglobin value is low.")
+            elif 117 <= hemoglobin <= 155:
+                print("Hemoglobin value is normal.")
+            else:
+                print("Hemoglobin value is high.")
+        elif gender == "male":
+            if hemoglobin < 134:
+                print("Hemoglobin value is low.")
+            elif 134 <= hemoglobin <= 167:
+                print("Hemoglobin value is normal.")
+            else:
+                print("Hemoglobin value is high.")
+        else:
+            print("Invalid gender. Please enter 'male' or 'female'.")
+
+            year = int(input("Enter a year: "))
+
+
+            if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
+                print(f"{year} is a leap year.")
+            else:
+                print(f"{year} is not a leap year.")

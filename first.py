@@ -46,3 +46,9 @@ lots = float(input("Enter lots: "))
 total_lots = (talents * pounds_in_talent * lots_in_pound) + (pounds * lots_in_pound) + lots
 
 total_grams = total_lots * grams_in_lot
+
+import random
+code_3_digits = [random.randint(0, 9) for _ in range(3)]
+code_4_digits = [random.randint(1, 6) for _ in range(4)]
+code_3_digits_str = ''.join(map(str, code_3_digits))
+code_4_digits_str = ''.join(map(str, code_4_digits))

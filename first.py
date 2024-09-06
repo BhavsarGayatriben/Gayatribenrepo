@@ -22,6 +22,7 @@ num2 = int(input("Enter the second integer: "))
 num3 = int(input("Enter the third integer: "))
 
 
+
 total_sum = num1 + num2 + num3
 
 
@@ -32,3 +33,16 @@ average = total_sum / 3
 print(f"Sum: {total_sum}")
 print(f"Product: {product}")
 print(f"Average: {average:.2f}")
+lots_in_pound = 32
+pounds_in_talent = 20
+grams_in_lot = 13.3
+
+
+talents = float(input("Enter talents: "))
+pounds = float(input("Enter pounds: "))
+lots = float(input("Enter lots: "))
+
+
+total_lots = (talents * pounds_in_talent * lots_in_pound) + (pounds * lots_in_pound) + lots
+
+total_grams = total_lots * grams_in_lot

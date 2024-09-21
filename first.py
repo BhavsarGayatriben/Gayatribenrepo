@@ -1,14 +1,9 @@
-list3=[]
-names=input("enter name:")
-while names!="Exit":
-    list3.append(names)
-    names=input("enter name:")
-    print(list3)
-    list=[]
-    names=input("enter name")
-    while name!="Exit":
-        list.append(names)
-        names=input("enter name")
-        print(list3)
-        n=input("do you want to remove an element from the list?:Y or N")
-        print("hello")
+import random
+num_dice = int(input("How many dice would you like to roll? "))
+
+total_sum = 0
+for _ in range(num_dice):
+    roll = random.randint(1, 6)
+    total_sum += roll
+
+print(f"The sum of the rolls is: {total_sum}")

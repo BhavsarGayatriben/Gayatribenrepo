@@ -42,3 +42,16 @@ if is_prime(number):
     print(f"{number} is a prime number.")
 else:
     print(f"{number} is not a prime number.")
+
+
+    cities = []
+
+
+    for i in range(5):
+        city = input(f"Enter the name of city {i + 1}: ")
+        cities.append(city)
+
+
+    print("\nThe cities you entered are:")
+    for city in cities:
+        print(city)

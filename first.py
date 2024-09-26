@@ -1,18 +1,17 @@
-correct_username = "Gayatri"
-correct_password = "Mihir"
-attempts = 0
-max_attempts = 5
+import random
 
-while attempts < max_attempts:
-    username = input("Enter username: ")
-    password = input("Enter password: ")
+def calculate_pi(num_points):
+    inside_circle = 0
 
-    if username == correct_username and password == correct_password:
-        print("Welcome!")
-        break
-    else:
-        attempts += 1
-        print(f"Incorrect credentials. You have {max_attempts - attempts} attempts left.")
+    for _ in range(num_points):
+        x = random.uniform(-1, 1)
+        y = random.uniform(-1, 1)
+        if x**2 + y**2 < 1:
+            inside_circle += 1
 
-if attempts == max_attempts:
-    print("Access denied.")
+    pi_approx = 4 * inside_circle / num_points
+    return pi_approx
+
+num_points = int(input("Enter the number of random points to generate: "))
+approx_pi = calculate_pi(num_points)
+print(f"Approximation of pi: {approx_pi}")

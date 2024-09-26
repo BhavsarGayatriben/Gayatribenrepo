@@ -1,14 +1,18 @@
-import random
+correct_username = "Gayatri"
+correct_password = "Mihir"
+attempts = 0
+max_attempts = 5
 
-number_to_guess = random.randint(1, 10)
-guess = None
+while attempts < max_attempts:
+    username = input("Enter username: ")
+    password = input("Enter password: ")
 
-while guess != number_to_guess:
-    guess = int(input("Guess the number (between 1 and 10): "))
-
-    if guess < number_to_guess:
-        print("Too low!")
-    elif guess > number_to_guess:
-        print("Too high!")
+    if username == correct_username and password == correct_password:
+        print("Welcome!")
+        break
     else:
-        print("Correct!")
+        attempts += 1
+        print(f"Incorrect credentials. You have {max_attempts - attempts} attempts left.")
+
+if attempts == max_attempts:
+    print("Access denied.")

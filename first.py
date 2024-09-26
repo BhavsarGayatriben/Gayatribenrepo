@@ -1,13 +1,14 @@
-import random
+def gallons_to_liters(gallons):
+    return gallons * 3.78541
 
-def roll_dice(sides):
-    return random.randint(1, sides)
 
 def main():
-    sides = int(input("Enter the number of sides on the dice: "))
-    result = 0
-    while result != sides:
-        result = roll_dice(sides)
-        print(f"Dice rolled: {result}")
+    while True:
+        gallons = float(input("Enter quantity of gasoline in gallons (negative to stop): "))
+        if gallons < 0:
+            print("Program ended.")
+            break
+        liters = gallons_to_liters(gallons)
+        print(f"{gallons} gallons is {liters:.2f} liters.")
 
 main()

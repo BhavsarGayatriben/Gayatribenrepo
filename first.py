@@ -1,13 +1,14 @@
-numbers = []
+import random
 
-while True:
-    user_input = input("Enter a number (or press Enter to quit): ")
-    if user_input == "":
-        break
-    numbers.append(float(user_input))
+number_to_guess = random.randint(1, 10)
+guess = None
 
-if numbers:
-    print(f"Smallest number: {min(numbers)}")
-    print(f"Largest number: {max(numbers)}")
-else:
-    print("No numbers were entered.")
+while guess != number_to_guess:
+    guess = int(input("Guess the number (between 1 and 10): "))
+
+    if guess < number_to_guess:
+        print("Too low!")
+    elif guess > number_to_guess:
+        print("Too high!")
+    else:
+        print("Correct!")

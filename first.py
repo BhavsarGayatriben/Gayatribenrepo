@@ -1,14 +1,11 @@
-def gallons_to_liters(gallons):
-    return gallons * 3.78541
+# Function to calculate the sum of integers in a list
+def sum_of_list(numbers):
+    return sum(numbers)
 
-
+# Main program: create a list and call the sum function
 def main():
-    while True:
-        gallons = float(input("Enter quantity of gasoline in gallons (negative to stop): "))
-        if gallons < 0:
-            print("Program ended.")
-            break
-        liters = gallons_to_liters(gallons)
-        print(f"{gallons} gallons is {liters:.2f} liters.")
+    numbers = [1, 2, 3, 4, 5]
+    total = sum_of_list(numbers)
+    print(f"The sum of the list {numbers} is {total}")
 
 main()

@@ -1,16 +1,33 @@
-def withdraw(balance, amount):
-    if amount > balance:
-        raise ValueError("Insufficient balance for the withdrawal!")
-    if amount < 0:
-        raise ValueError("Cannot withdraw a negative amount!")
-    return balance - amount
 
-try:
-    balance = float(input("Enter account balance: "))
-    withdrawal = float(input("Enter withdrawal amount: "))
-    new_balance = withdraw(balance, withdrawal)
-    print(f"Transaction successful! New balance: {new_balance:.2f}")
-except ValueError as ve:
-    print(f"Error: {ve}")
-except Exception as e:
-    print(f"Invalid input: {e}")
+
+def write_notes(file_name):
+    with open(file_name, "w") as file:
+        note = input("Write a new note: ")
+        file.write(note + "\n")
+
+def read_notes(file_name):
+    with open(file_name, "r") as file:
+        notes = file.readlines()
+        for note in notes:
+            print(note.strip())
+
+def append_notes(file_name):
+    with open(file_name, "a") as file:
+        note = input("Write additional note to append: ")
+        file.write(note + "\n")
+
+file_name = "notes.txt"
+
+# Write a new note
+write_notes(file_name)
+
+# Read existing notes
+print("\nReading notes from the file:")
+read_notes(file_name)
+
+# Append new notes
+append_notes(file_name)
+
+# Read updated notes
+print("\nUpdated notes in the file:")
+read_notes(file_name)

@@ -1,19 +1,31 @@
-def name_checker():
-    names = set()
+def airport_manager():
+    airports = {}
 
     while True:
-        name = input("Enter a name (or press Enter to finish): ").strip()
-        if not name:  # If the input is an empty string, break the loop
+        print("\n1. Enter a new airport")
+        print("2. Fetch airport information")
+        print("3. Quit")
+        choice = input("Choose an option (1-3): ").strip()
+
+        if choice == "1":
+            icao = input("Enter the ICAO code: ").strip().upper()
+            name = input("Enter the name of the airport: ").strip()
+            airports[icao] = name
+            print(f"Airport {name} with ICAO code {icao} added.")
+
+        elif choice == "2":
+            icao = input("Enter the ICAO code: ").strip().upper()
+            if icao in airports:
+                print(f"The airport name is: {airports[icao]}")
+            else:
+                print("Airport not found.")
+
+        elif choice == "3":
+            print("Exiting the program.")
             break
-        if name in names:
-            print("Existing name")
+
         else:
-            print("New name")
-            names.add(name)
-
-    print("\nList of names entered:")
-    for name in names:
-        print(name)
+            print("Invalid option. Please choose 1, 2, or 3.")
 
 
-name_checker()
+airport_manager()

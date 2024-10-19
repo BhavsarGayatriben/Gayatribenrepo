@@ -1,17 +1,19 @@
-def find_season():
-    seasons = ("Winter", "Spring", "Summer", "Autumn")
-    month = int(input("Enter the number of the month (1-12): "))
+def name_checker():
+    names = set()
 
-    if month in [12, 1, 2]:
-        print("The season is:", seasons[0])
-    elif month in [3, 4, 5]:
-        print("The season is:", seasons[1])
-    elif month in [6, 7, 8]:
-        print("The season is:", seasons[2])
-    elif month in [9, 10, 11]:
-        print("The season is:", seasons[3])
-    else:
-        print("Invalid month number!")
+    while True:
+        name = input("Enter a name (or press Enter to finish): ").strip()
+        if not name:  # If the input is an empty string, break the loop
+            break
+        if name in names:
+            print("Existing name")
+        else:
+            print("New name")
+            names.add(name)
+
+    print("\nList of names entered:")
+    for name in names:
+        print(name)
 
 
-find_season()
+name_checker()

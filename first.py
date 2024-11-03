@@ -1,45 +1,33 @@
-import csv
 import numpy as np
-import matplotlib.pyplot as plt
 
-# Path to the CSV file (replace with the correct path to your file)
-file_path = 'path/to/weight-height.csv'  # Replace this with your actual file path
+# Define matrix A
+A = np.array([
+    [1, 2, 3],
+    [0, 1, 4],
+    [5, 6, 0]
+])
 
-# Read data from the CSV file into a list, then convert to a numpy array
-data = []
+# Calculate the inverse of A
+A_inv = np.linalg.inv(A)
 
-try:
-    with open(file_path, 'r') as file:
-        reader = csv.reader(file)
-        next(reader)  # Skip header row if there is one
-        for row in reader:
-            # Append each row as a tuple (length, weight) converted to float
-            data.append((float(row[0]), float(row[1])))  # Assuming length is in column 1 and weight in column 2
+# Calculate A * A_inv and A_inv * A
+identity_1 = np.dot(A, A_inv)
+identity_2 = np.dot(A_inv, A)
 
-    # Convert the list to a numpy array
-    data = np.array(data)
+# Print results
+print("Matrix A:")
+print(A)
 
-    # Separate columns for length and weight
-    length_in_inches = data[:, 0]  # First column for length
-    weight_in_pounds = data[:, 1]  # Second column for weight
+print("\nInverse of Matrix A (A^-1):")
+print(A_inv)
 
-    # Convert lengths to centimeters and weights to kilograms
-    length_cm = length_in_inches * 2.54
-    weight_kg = weight_in_pounds * 0.453592
+print("\nA * A^-1 (Should approximate identity matrix):")
+print(identity_1)
 
-    # Calculate the means of lengths and weights
-    mean_length = np.mean(length_cm)
-    mean_weight = np.mean(weight_kg)
+print("\nA^-1 * A (Should approximate identity matrix):")
+print(identity_2)
 
-    print("Mean Length (cm):", mean_length)
-    print("Mean Weight (kg):", mean_weight)
-
-    # Plot histogram of lengths in centimeters
-    plt.hist(length_cm, bins=20, color='skyblue', edgecolor='black')
-    plt.title('Histogram of Lengths in cm')
-    plt.xlabel('Length (cm)')
-    plt.ylabel('Frequency')
-    plt.show()
-
-except FileNotFoundError:
-    print(f"The file at path '{file_path}' was not found. Please check the file path and try again.")
+# Optionally, check if the results are close to the identity matrix
+print("\nAre A * A^-1 and A^-1 * A close to the identity matrix?")
+print(np.allclose(identity_1, np.eye(3)))  # True if close to identity matrix
+print(np.allclose(identity_2, np.eye(3)))  # True if close to identity matrix

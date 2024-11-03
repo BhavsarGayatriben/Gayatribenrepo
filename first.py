@@ -1,31 +1,19 @@
-def airport_manager():
-    airports = {}
+import matplotlib.pyplot as plt
+import numpy as np
 
-    while True:
-        print("\n1. Enter a new airport")
-        print("2. Fetch airport information")
-        print("3. Quit")
-        choice = input("Choose an option (1-3): ").strip()
+x = np.linspace(-10, 10, 100)
 
-        if choice == "1":
-            icao = input("Enter the ICAO code: ").strip().upper()
-            name = input("Enter the name of the airport: ").strip()
-            airports[icao] = name
-            print(f"Airport {name} with ICAO code {icao} added.")
+y1 = 2 * x + 1
+y2 = 2 * x + 2
+y3 = 2 * x + 3
 
-        elif choice == "2":
-            icao = input("Enter the ICAO code: ").strip().upper()
-            if icao in airports:
-                print(f"The airport name is: {airports[icao]}")
-            else:
-                print("Airport not found.")
+plt.plot(x, y1, 'r--', label='y = 2x + 1')  # red dashed line
+plt.plot(x, y2, 'g-.', label='y = 2x + 2')  # green dash-dot line
+plt.plot(x, y3, 'b:', label='y = 2x + 3')   # blue dotted line
 
-        elif choice == "3":
-            print("Exiting the program.")
-            break
-
-        else:
-            print("Invalid option. Please choose 1, 2, or 3.")
-
-
-airport_manager()
+plt.title('Lines with Different Slopes and Intercepts')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.legend()
+plt.grid(True)
+plt.show()

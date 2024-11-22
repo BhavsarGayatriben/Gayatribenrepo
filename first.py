@@ -1,33 +1,14 @@
-import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
 
-# Define matrix A
-A = np.array([
-    [1, 2, 3],
-    [0, 1, 4],
-    [5, 6, 0]
-])
+file_path = 'weight-height.csv'
+data = pd.read_csv(file_path)
 
-# Calculate the inverse of A
-A_inv = np.linalg.inv(A)
+plt.figure(figsize=(8, 6))
+plt.scatter(data['Height'], data['Weight'], alpha=0.5, color='red')
+plt.title('Scatter Plot of Height vs Weight', fontsize=14)
+plt.xlabel('Height (inches)', fontsize=12)
+plt.ylabel('Weight (pounds)', fontsize=12)
+plt.grid(True, linestyle='--', alpha=0.7)
+plt.show()
 
-# Calculate A * A_inv and A_inv * A
-identity_1 = np.dot(A, A_inv)
-identity_2 = np.dot(A_inv, A)
-
-# Print results
-print("Matrix A:")
-print(A)
-
-print("\nInverse of Matrix A (A^-1):")
-print(A_inv)
-
-print("\nA * A^-1 (Should approximate identity matrix):")
-print(identity_1)
-
-print("\nA^-1 * A (Should approximate identity matrix):")
-print(identity_2)
-
-# Optionally, check if the results are close to the identity matrix
-print("\nAre A * A^-1 and A^-1 * A close to the identity matrix?")
-print(np.allclose(identity_1, np.eye(3)))  # True if close to identity matrix
-print(np.allclose(identity_2, np.eye(3)))  # True if close to identity matrix
